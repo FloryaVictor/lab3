@@ -18,9 +18,11 @@ public class Main {
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
 
         //removing csv headers
-        String header = flights.first();
-        flights = flights.filter(line -> !line.equals(header));
-        header = airports.first();
-        airports = airports.filter(line -> !line.equals(header));
+        final String flightsHeader = flights.first();
+        final String airportsHeader = airports.first();
+        flights = flights.filter(line -> !line.equals(flightsHeader));
+        airports = airports.filter(line -> !line.equals(airportsHeader));
+
+        
     }
 }
