@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
 
@@ -30,7 +31,7 @@ public class Main {
         JavaPairRDD<String, AirportData> airportsDataByCode = airports.mapToPair(p ->
             new Tuple2<>(StringTools.splitCSV(p)[0], new AirportData(StringTools.splitCSV(p)[1]))
         );
-        final 
+        final Broadcast<>
     }
 }
 
