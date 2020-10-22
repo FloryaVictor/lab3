@@ -14,8 +14,8 @@ public class Main {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
+        JavaRDD<String> flights = sc.textFile(args[0]);
+        JavaRDD<String> airports = sc.textFile(args[1]);
 
         //removing csv headers
         final String flightsHeader = flights.first();
@@ -23,6 +23,6 @@ public class Main {
         flights = flights.filter(line -> !line.equals(flightsHeader));
         airports = airports.filter(line -> !line.equals(airportsHeader));
 
-        
+
     }
 }
