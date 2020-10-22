@@ -1,2 +1,7 @@
-package lab3;public class AirportData {
+package lab3;
+
+import java.io.Serializable;
+
+public class AirportData implements Serializable {
+    
 }
