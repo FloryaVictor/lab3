@@ -2,6 +2,6 @@ package lab3;
 
 import java.io.Serializable;
 
-public class AirportData implements scala.Serializable{
-
+public class AirportData implements Serializable{
+    
 }
