@@ -43,7 +43,7 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        flightsDataByNames.reduceByKey();
+        flightsDataByNames.groupByKey()
     }
 }
 
