@@ -12,7 +12,7 @@ public class FlightsData implements Serializable{
     public FlightsData(String data){
         this.columns = StringTools.splitCSV(data);
     }
-    
+
     public Boolean isCanceled(){
         return
     }
