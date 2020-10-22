@@ -1,2 +1,4 @@
-package lab3;public class FlightsData {
+package lab3;
+
+public class FlightsData Serializable {
 }
