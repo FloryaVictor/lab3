@@ -7,6 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
+import java.util.Map;
+
 
 public class Main {
     public static void main(String[] args) throws Exception
@@ -31,7 +33,7 @@ public class Main {
         JavaPairRDD<String, AirportData> airportsDataByCode = airports.mapToPair(p ->
             new Tuple2<>(StringTools.splitCSV(p)[0], new AirportData(StringTools.splitCSV(p)[1]))
         );
-        final Broadcast<Map<String, AirportData>>
+        final Broadcast<Map<String, AirportData>> 
     }
 }
 
