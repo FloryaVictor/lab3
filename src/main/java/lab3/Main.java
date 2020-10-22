@@ -35,7 +35,7 @@ public class Main {
         );
         final Broadcast<Map<String, AirportData>> airportsBroadcasted = sc.broadcast(airportsDataByCode.collectAsMap());
 
-        
+
     }
 }
 
