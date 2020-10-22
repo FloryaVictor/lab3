@@ -48,7 +48,10 @@ public class Main {
                 .mapValues(it -> {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0;
-                    
+                    float maxDelay = Float.MIN_VALUE;
+                    for (FlightsData fdata : iter){
+                        
+                    }
                 })
     }
 }
