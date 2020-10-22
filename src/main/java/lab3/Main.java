@@ -36,8 +36,11 @@ public class Main {
         );
         final Broadcast<Map<String, AirportData>> airportsBroadcasted = sc.broadcast(airportsDataByCode.collectAsMap());
 
-        
-
+        JavaPairRDD<Tuple2<String, String>, FlightsData> flightsDataByNames = flights.flatMapToPair(f -> {
+            FlightsData fdata = new FlightsData(f);
+            Tuple2<String, String> names = new Tuple2<>(fdata.getOrigin(),fdata.getDestination());
+            return new Tuple2<Tuple2<String, String>, FlightsData>(names, fdata);
+        });
     }
 }
 

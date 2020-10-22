@@ -25,4 +25,10 @@ public class FlightsData implements Serializable{
             return 0;
         }
     }
+    public String getOrigin(){
+        return columns[originAirportIdIndex];
+    }
+    public String getDestination(){
+        return columns[destAirportIdIndex];
+    }
 }
