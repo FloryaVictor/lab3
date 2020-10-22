@@ -33,7 +33,7 @@ public class Main {
         JavaPairRDD<String, AirportData> airportsDataByCode = airports.mapToPair(p ->
             new Tuple2<>(StringTools.splitCSV(p)[0], new AirportData(StringTools.splitCSV(p)[1]))
         );
-        final Broadcast<Map<String, AirportData>> airportsBroad
+        final Broadcast<Map<String, AirportData>> airportsBroadCasted 
     }
 }
 
