@@ -14,6 +14,15 @@ public class FlightsData implements Serializable{
     }
 
     public Boolean isCanceled(){
-        return
+        return columns[isCanceledIndex].equals(specTrue);
+    }
+    public int getDelay(){
+        String delay = columns[delayIndex];
+        try {
+            return Integer.parseInt(delay);
+        } catch (NumberFormatException e)
+        {
+            return 0;
+        }
     }
 }

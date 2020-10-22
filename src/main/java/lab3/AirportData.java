@@ -4,9 +4,11 @@ package lab3;
 import java.io.Serializable;
 
 public class AirportData implements Serializable {
-    public String name;
-    public AirportData(String name)
+    public String[] columns;
+    final public static int codeIndex = 0;
+    final public static int nameIndex = 1;
+    public AirportData(String data)
     {
-        this.name = name;
+        this.columns = StringTools.splitCSV(data);
     }
 }
