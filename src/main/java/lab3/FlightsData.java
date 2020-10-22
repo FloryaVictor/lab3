@@ -16,10 +16,10 @@ public class FlightsData implements Serializable{
     public Boolean isCanceled(){
         return columns[isCanceledIndex].equals(specTrue);
     }
-    public int getDelay(){
+    public Float getDelay(){
         String delay = columns[delayIndex];
         try {
-            return Integer.parseInt(delay);
+            return Float.parseFloat(delay);
         } catch (NumberFormatException e)
         {
             return 0;

@@ -49,8 +49,10 @@ public class Main {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0;
                     float maxDelay = Float.MIN_VALUE;
-                    for (FlightsData fdata : iter){
-                        
+                    for (Iterator<FlightsData> iterator = iter; iterator.hasNext(); ) {
+                        FlightsData fdata = iterator.next();
+                        if (fdata.isCanceled() || fdata.getDelay() > 0.0f) count++;
+                        maxDelay = Float.max(maxDelay, fdata.getDelay());
                     }
                 })
     }
