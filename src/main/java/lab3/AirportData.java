@@ -1,6 +1,6 @@
 package lab3;
 
-import scala.Serializable;
+import java.io.Serializable;
 
 import java.io.ObjectOutputStream;
 
