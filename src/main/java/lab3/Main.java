@@ -1,2 +1,4 @@
-package lab3;public class Main {
+package lab3;
+
+public class Main {
 }
