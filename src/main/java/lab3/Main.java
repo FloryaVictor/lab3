@@ -13,8 +13,14 @@ public class Main {
         }
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
+
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
-        
+
+        //removing csv headers
+        String header = flights.first();
+        flights = flights.filter(line -> !line.equals(header));
+        header = airports.first();
+        airports = airports.filter(line -> !line.equals(header));
     }
 }
