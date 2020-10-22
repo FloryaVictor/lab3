@@ -1,9 +1,10 @@
 package lab3;
 
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import scala.Serializable;
 
-public class AirportData implements Serializable{
+import java.io.ObjectOutputStream;
+
+public class AirportData implements Serializable {
     @Override
     private void writeObject(ObjectOutputStream out)
     {
