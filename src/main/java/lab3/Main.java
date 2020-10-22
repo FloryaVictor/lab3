@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-
+import scala.Tuple2;
 
 
 public class Main {
@@ -26,7 +26,11 @@ public class Main {
         flights = flights.filter(line -> !line.equals(flightsHeader));
         airports = airports.filter(line -> !line.equals(airportsHeader));
 
-        JavaPairRDD<String, AirportData> airportsDataByCode = airports.map()
+        //creating broadcast for airports
+        JavaPairRDD<String, AirportData> airportsDataByCode = airports.mapToPair(p ->
+            new Tuple2<>(StringTools.splitCSV(p)[0], new AirportData(StringTools.splitCSV(p)[1]))
+        );
+        
     }
 }
 
