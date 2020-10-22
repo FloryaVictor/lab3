@@ -3,8 +3,9 @@ package lab3;
 import java.io.Serializable;
 
 public class FlightsData implements Serializable{
-    public 
-    public FlightsData(String data){
+    public String[] columns;
 
+    public FlightsData(String data){
+        this.columns = StringTools.splitCSV(data);
     }
 }
