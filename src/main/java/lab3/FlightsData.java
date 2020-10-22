@@ -1,4 +1,10 @@
 package lab3;
 
-public class FlightsData Serializable {
+import java.io.Serializable;
+
+public class FlightsData implements Serializable{
+    public 
+    public FlightsData(String data){
+
+    }
 }
