@@ -43,7 +43,7 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        flightsDataByNames
+        JavaPairRDD<Tuple2<String, String>, Tuple2<Float, Float>> ans = flightsDataByNames.reduceByKey();
     }
 }
 
