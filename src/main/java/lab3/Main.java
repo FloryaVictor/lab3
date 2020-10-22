@@ -44,6 +44,7 @@ public class Main {
         });
 
         flightsDataByNames.groupByKey()
+                .
     }
 }
 
