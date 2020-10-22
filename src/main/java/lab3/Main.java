@@ -26,7 +26,7 @@ public class Main {
         flights = flights.filter(line -> !line.equals(flightsHeader));
         airports = airports.filter(line -> !line.equals(airportsHeader));
 
-        JavaPairRDD<String, AirportData> 
+        JavaPairRDD<String, AirportData> airportsDataByCode = airports.map()
     }
 }
 
