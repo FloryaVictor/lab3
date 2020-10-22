@@ -7,6 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
+import java.util.Iterator;
 import java.util.Map;
 
 
@@ -43,7 +44,12 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        JavaPairRDD<Tuple2<String, String>, Tuple2<Float, Float>> ans = flightsDataByNames.reduceByKey();
+        flightsDataByNames.groupByKey()
+                .mapValues(it -> {
+                    Iterator<FlightsData> iter = it.iterator();
+                    int count = 0;
+                    
+                })
     }
 }
 
