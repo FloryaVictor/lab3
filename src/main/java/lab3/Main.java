@@ -48,7 +48,7 @@ public class Main {
         //processing data
         flightsDataByNames
                 .groupByKey()
-                //calculating max delay and percent of canceled+d
+                //calculating max delay and percent of canceled+delayed
                 .mapValues(it -> {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0, size = 0;
@@ -63,6 +63,7 @@ public class Main {
                         maxDelay = 0.0f;
                     return new Tuple2<>(maxDelay, (count * 100f) / size);
                 })
+                //replacing airport codes with corresponding airport names
                 .map(data ->{
                     String originAirportName = airportsBroadcasted.value().get(data._1()._1()).getName();
                     String destAirportName = airportsBroadcasted.value().get(data._1()._2()).getName();
