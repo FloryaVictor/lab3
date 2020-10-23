@@ -57,7 +57,7 @@ public class Main {
                     }
                     if (maxDelay == Float.MIN_VALUE)
                         maxDelay = 0.0f;
-                    return new Tuple2<>(Float.max(maxDelay, 0.0f), (count * 100f) / size);
+                    return new Tuple2<>(maxDelay, (count * 100f) / size);
                 }).saveAsTextFile(args[2]);
 //                .map(data ->{
 //                    String originAirportName = airportsBroadcasted.value().get(data._1._1).getName();
