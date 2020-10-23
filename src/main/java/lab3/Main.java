@@ -30,12 +30,11 @@ public class Main {
         flights = flights.filter(line -> !line.equals(flightsHeader));
         airports = airports.filter(line -> !line.equals(airportsHeader));
 
-        //creating broadcast for airports and groping data
+        //creating broadcast for airports and grouping data
         JavaPairRDD<String, AirportData> airportsDataByCode = airports.mapToPair(p ->
             new Tuple2<>(StringTools.splitCSV(p)[AirportData.codeIndex],
                     new AirportData(p))
         );
-        Map<String, AirportData> m = airportsDataByCode.collectAsMap();
         final Broadcast<Map<String, AirportData>> airportsBroadcasted = sc.broadcast(airportsDataByCode.collectAsMap());
 
 
