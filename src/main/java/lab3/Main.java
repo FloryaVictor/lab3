@@ -44,20 +44,19 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        flights.saveAsTextFile(args[2]);
-//        flightsDataByNames.groupByKey()
-//                .mapValues(it -> {
-//                    Iterator<FlightsData> iter = it.iterator();
-//                    int count = 0, size = 0;
-//                    float maxDelay = Float.MIN_VALUE;
-//                    for (Iterator<FlightsData> iterator = iter; iterator.hasNext(); ) {
-//                        FlightsData fdata = iterator.next();
-//                        size++;
-//                        if (fdata.isCanceled() || fdata.getDelay() > 0.0f) count++;
-//                        maxDelay = Float.max(maxDelay, fdata.getDelay());
-//                    }
-//                    return new Tuple2<>(maxDelay, (count * 100f) / size);
-//                });
+        flightsDataByNames.groupByKey()
+                .mapValues(it -> {
+                    Iterator<FlightsData> iter = it.iterator();
+                    int count = 0, size = 0;
+                    float maxDelay = Float.MIN_VALUE;
+                    for (Iterator<FlightsData> iterator = iter; iterator.hasNext(); ) {
+                        FlightsData fdata = iterator.next();
+                        size++;
+                        if (fdata.isCanceled() || fdata.getDelay() > 0.0f) count++;
+                        maxDelay = Float.max(maxDelay, fdata.getDelay());
+                    }
+                    return new Tuple2<>(maxDelay, (count * 100f) / size);
+                }).saveAsTextFile(args[2]);
 //                .map(data ->{
 //                    String originAirportName = airportsBroadcasted.value().get(data._1._1).getName();
 //                    String destAirportName = airportsBroadcasted.value().get(data._1._2).getName();
