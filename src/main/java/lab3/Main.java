@@ -35,6 +35,7 @@ public class Main {
             new Tuple2<>(StringTools.splitCSV(p)[AirportData.codeIndex],
                     new AirportData(p))
         );
+        Map<String, AirportData> m = airportsDataByCode.collectAsMap();
         final Broadcast<Map<String, AirportData>> airportsBroadcasted = sc.broadcast(airportsDataByCode.collectAsMap());
 
 
@@ -44,7 +45,9 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        flightsDataByNames.groupByKey()
+        //processing data
+        flightsDataByNames
+                .groupByKey()
                 .mapValues(it -> {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0, size = 0;
@@ -58,15 +61,17 @@ public class Main {
                     if (maxDelay == Float.MIN_VALUE)
                         maxDelay = 0.0f;
                     return new Tuple2<>(maxDelay, (count * 100f) / size);
-                }).saveAsTextFile(args[2]);
-//                .map(data ->{
+                })
+                .map(data ->{
 //                    String originAirportName = airportsBroadcasted.value().get(data._1._1).getName();
 //                    String destAirportName = airportsBroadcasted.value().get(data._1._2).getName();
-//                    return new Tuple2<>(
-//                            new Tuple2<>(originAirportName, destAirportName),
-//                            data._2()
-//                    );
-//                }).saveAsTextFile(args[2]);
+                    String originAirportName = m.get(data._1._1).getName();
+                    String destAirportName = m.get(data._1._2).getName();
+                    return new Tuple2<>(
+                            new Tuple2<>(originAirportName, destAirportName),
+                            data._2()
+                    );
+                }).saveAsTextFile(args[2]);
     }
 }
 
