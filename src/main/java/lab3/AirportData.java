@@ -11,4 +11,8 @@ public class AirportData implements Serializable {
     {
         this.columns = StringTools.splitCSV(data);
     }
+    public String getName()
+    {
+        return columns[nameIndex];
+    }
 }

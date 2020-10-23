@@ -22,7 +22,7 @@ public class FlightsData implements Serializable{
             return Float.parseFloat(delay);
         } catch (NumberFormatException e)
         {
-            return 0;
+            return 0.0f;
         }
     }
     public String getOrigin(){
