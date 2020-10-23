@@ -55,6 +55,8 @@ public class Main {
                         if (fdata.isCanceled() || fdata.getDelay() > 0.0f) count++;
                         maxDelay = Float.max(maxDelay, fdata.getDelay());
                     }
+                    if (maxDelay == Float.MIN_VALUE)
+                        maxDelay = 0.0f;
                     return new Tuple2<>(Float.max(maxDelay, 0.0f), (count * 100f) / size);
                 }).saveAsTextFile(args[2]);
 //                .map(data ->{
