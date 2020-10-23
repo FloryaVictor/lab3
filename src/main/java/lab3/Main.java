@@ -65,8 +65,6 @@ public class Main {
                 .map(data ->{
                     String originAirportName = airportsBroadcasted.value().get(data._1()._1()).getName();
                     String destAirportName = airportsBroadcasted.value().get(data._1()._2()).getName();
-//                    String originAirportName = m.get(data._1._1).getName();
-//                    String destAirportName = m.get(data._1._2).getName();
                     return new Tuple2<>(
                             new Tuple2<>(originAirportName, destAirportName),
                             data._2()
