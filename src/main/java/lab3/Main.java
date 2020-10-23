@@ -55,7 +55,7 @@ public class Main {
                         if (fdata.isCanceled() || fdata.getDelay() > 0.0f) count++;
                         maxDelay = Float.max(maxDelay, fdata.getDelay());
                     }
-                    return new Tuple2<>(maxDelay, (count * 100f) / size);
+                    return new Tuple2<>(Float.max(maxDelay, 0.0f), (count * 100f) / size);
                 }).saveAsTextFile(args[2]);
 //                .map(data ->{
 //                    String originAirportName = airportsBroadcasted.value().get(data._1._1).getName();
