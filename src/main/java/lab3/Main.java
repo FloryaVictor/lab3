@@ -48,6 +48,7 @@ public class Main {
         //processing data
         flightsDataByNames
                 .groupByKey()
+                //
                 .mapValues(it -> {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0, size = 0;
