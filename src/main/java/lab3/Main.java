@@ -44,7 +44,7 @@ public class Main {
             return new Tuple2<>(names, fdata);
         });
 
-        airports.saveAsTextFile(args[2]);
+        flights.saveAsTextFile(args[2]);
 //        flightsDataByNames.groupByKey()
 //                .mapValues(it -> {
 //                    Iterator<FlightsData> iter = it.iterator();
