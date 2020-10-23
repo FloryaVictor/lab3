@@ -48,7 +48,7 @@ public class Main {
         //processing data
         flightsDataByNames
                 .groupByKey()
-                //
+                //calculating max delay and percent of canceled+d
                 .mapValues(it -> {
                     Iterator<FlightsData> iter = it.iterator();
                     int count = 0, size = 0;
