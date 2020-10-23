@@ -5,4 +5,8 @@ public class StringTools {
     public static String[] splitCSV(String csvLine){
         return csvLine.split(csvDelimiter);
     }
+    public static String removeQuotes(String s)
+    {
+        
+    }
 }
